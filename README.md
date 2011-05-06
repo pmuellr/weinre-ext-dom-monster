@@ -24,11 +24,12 @@ License
 The file `dom-monster-agent.js` is a modified version of the original 
 DOM Monster source, and is available under the same license as the original.
 
-The file `images\dom-monster-panel-icon.png` is a modified version of the
+The file `images/dom-monster-panel-icon.png` is a modified version of the
 DOM Monster logo, and is available under the same license as the original.
 
 The remaining files are available under *either* the terms of the modified BSD license *or* the
 MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
 
 Copyright (c) 2009-2011 Amy Hoy & Thomas Fuchs (DOM Monster original bits)
+
 Copyright (c) 2011 IBM Corporation (everything else)
