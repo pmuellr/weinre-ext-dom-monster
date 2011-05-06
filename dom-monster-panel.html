@@ -2,10 +2,27 @@
 
 <script src="dom-monster-agent.js"></script>
 
+<p>Analyzing: <span id="target-url">?</span>
+
 <div id="results">
 </div>
 
 <script>
+
+//-------------------------------------------------------------------
+webInspector.inspectedWindow.eval("location.href", setTargetURL)
+
+function setTargetURL(result, isException) {
+    var node = document.getElementById("target-url")
+    
+    if (isException) {
+        node.innerText = "[not connected? - " + result + "]"
+        return
+    }
+    
+    node.innerText = result
+}
+
 //-------------------------------------------------------------------
 webInspector.inspectedWindow.onNavigated.addListener(function() {
     runDOMMonster()
