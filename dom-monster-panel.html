@@ -1,0 +1,38 @@
+<script src="../../web-inspector-API.js"></script>
+
+<script src="dom-monster-agent.js"></script>
+
+<div id="results">
+</div>
+
+<script>
+//-------------------------------------------------------------------
+webInspector.inspectedWindow.onNavigated.addListener(function() {
+    runDOMMonster()
+})
+
+//-------------------------------------------------------------------
+webInspector.inspectedWindow.onLoaded.addListener(function() {
+    runDOMMonster()
+})
+
+//-------------------------------------------------------------------
+function runDOMMonster() {
+    code = domMonsterAnalyze + "; domMonsterAnalyze()"
+    webInspector.inspectedWindow.eval(code, processDOMMonsterResults)
+}
+
+//-------------------------------------------------------------------
+function processDOMMonsterResults(result, isException) {
+    if (isException) {
+        console.log("exception running DOMMonster: " + result)
+        return
+    }
+    
+    var node = document.getElementById("results")
+    node.innerHTML = result
+}
+
+//-------------------------------------------------------------------
+runDOMMonster()
+</script>
